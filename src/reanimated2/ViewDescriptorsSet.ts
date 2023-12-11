@@ -32,7 +32,7 @@ export function makeViewDescriptorsSet(): ViewDescriptorsSet {
           descriptors.push(item);
         }
         return descriptors;
-      });
+      }, false);
     },
 
     remove: (viewTag: number) => {
@@ -45,13 +45,13 @@ export function makeViewDescriptorsSet(): ViewDescriptorsSet {
           descriptors.splice(index, 1);
         }
         return descriptors;
-      });
+      }, false);
     },
   };
   return data;
 }
 
-export function makeViewsRefSet<T>(): ViewRefSet<T> {
+export function useViewRefSet<T>(): ViewRefSet<T> {
   const ref = useRef<ViewRefSet<T> | null>(null);
   if (ref.current === null) {
     const data: ViewRefSet<T> = {
